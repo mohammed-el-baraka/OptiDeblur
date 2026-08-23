@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔬 OptiDeblur: Regularized Wiener-Hunt Image Deconvolution
+# OptiDeblur: Regularized Wiener-Hunt Image Deconvolution
 ### High-Performance Computational Restoration of Ill-Posed 2D Linear Inverse Problems
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
@@ -13,13 +13,13 @@
 **Institution:** EMINES – School of Industrial Management, Mohammed VI Polytechnic University (UM6P)  
 **Topic:** Computational Signal & Image Processing, Fourier Diagonalization, Tikhonov Regularization, Bias-Variance Optimization
 
-[📘 Read Official Technical Report (PDF)](Rapport_Mohammed_EL_BARAKA.pdf) • [📊 View Figures](figures/) • [💻 MATLAB Code](matlab/) • [🐍 Python Engine](python/)
+[Read Official Technical Report (PDF)](Rapport_Mohammed_EL_BARAKA.pdf) • [View Figures](figures/) • [MATLAB Code](matlab/) • [Python Engine](python/)
 
 </div>
 
 ---
 
-## 🌟 Executive Summary
+## Executive Summary
 
 In optical systems, photography, astronomical observation, and biomedical microscopy, image formation is intrinsically degraded by blur (optical diffraction, lens defocus, motion) and additive electronic sensor noise.
 
@@ -33,7 +33,7 @@ Recovering the pristine image $\mathbf{x}^*$ from the blurred and noisy observat
 
 ---
 
-## 📐 Mathematical Formulation
+## Mathematical Formulation
 
 ### 1. Forward Observation Model
 The vectorized degradation model is:
@@ -48,12 +48,12 @@ where:
 ### 2. Ill-Posedness & Naive Inverse Instability
 Singular values $\sigma_i(\mathbf{H})$ decay rapidly to zero at high spatial frequencies:
 
-$$\hat{\mathbf{x}}_{\text{naive}} = \mathbf{H}^\dagger \mathbf{y} = \mathbf{x}^* + \sum_{i=1}^{NM} \frac{\mathbf{u}_i^T \mathbf{b}}{\sigma_i} \mathbf{v}_i \implies \mathbb{E}[\|\hat{\mathbf{x}} - \mathbf{x}^*\|^2] = \sigma_b^2 \sum_{i=1}^{NM} \frac{1}{\sigma_i^2} \longrightarrow +\infty$$
+$$\hat{\mathbf{x}}_{\text{naive}} = \mathbf{H}^\dagger \mathbf{y} = \mathbf{x}^* + \sum_{i=1}^{NM} \frac{\mathbf{u}_i^T \mathbf{b}}{\sigma_i} \mathbf{v}_i \implies \mathbb{E}\left[\|\hat{\mathbf{x}} - \mathbf{x}^*\|^2\right] = \sigma_b^2 \sum_{i=1}^{NM} \frac{1}{\sigma_i^2} \longrightarrow +\infty$$
 
 ### 3. Tikhonov Variational Objective
 We formulate the penalized least-squares minimization problem:
 
-$$\hat{\mathbf{x}}_\lambda = \arg\min_{\mathbf{x}} \left\{ \|\mathbf{y} - \mathbf{H}\mathbf{x}\|_2^2 + \lambda \|\mathbf{D}\mathbf{x}\|_2^2 \right\}$$
+$$\hat{\mathbf{x}}_\lambda = \arg\min_{\mathbf{x}} \left[ \|\mathbf{y} - \mathbf{H}\mathbf{x}\|_2^2 + \lambda \|\mathbf{D}\mathbf{x}\|_2^2 \right]$$
 
 Taking the matrix gradient $\nabla_{\mathbf{x}} J(\mathbf{x}) = \mathbf{0}$ yields the normal equations:
 
@@ -66,15 +66,15 @@ $$\mathbf{H} = \mathbf{F}^\dagger \mathbf{\Lambda}_H \mathbf{F}, \quad \mathbf{D
 
 This yields the element-wise Wiener-Hunt spectral filter:
 
-$$\hat{X}(\nu_x, \nu_y) = \underbrace{\frac{H^*(\nu_x, \nu_y)}{|H(\nu_x, \nu_y)|^2 + \lambda |D(\nu_x, \nu_y)|^2}}_{G(\nu_x, \nu_y)} \cdot Y(\nu_x, \nu_y)$$
+$$\hat{X}(\nu_x, \nu_y) = \frac{H^*(\nu_x, \nu_y)}{|H(\nu_x, \nu_y)|^2 + \lambda |D(\nu_x, \nu_y)|^2} \cdot Y(\nu_x, \nu_y)$$
 
 The spatial estimate is reconstructed via 2D IFFT:
 
-$$\hat{x}[n,m] = \mathcal{F}^{-1} \{ G(\nu_x, \nu_y) \cdot Y(\nu_x, \nu_y) \}$$
+$$\hat{x}[n,m] = \mathcal{F}^{-1} \left\{ G(\nu_x, \nu_y) \cdot Y(\nu_x, \nu_y) \right\}$$
 
 ---
 
-## 📊 Visual Gallery
+## Visual Gallery
 
 ### 1. Spatial & Frequency Spectral Analysis
 Comparison between Ground Truth, Gaussian blur (isotropic smooth decay), and Box blur (anisotropic with exact spectral nulls).
@@ -148,7 +148,7 @@ Smooth cosine windowing dampens periodic boundary wrap-around artifacts.
 
 ---
 
-## 🏆 Quantitative Benchmark Results
+## Quantitative Benchmark Results
 
 | Dataset | Blur Type | Optimal $\lambda^*$ | Relative $L_2$ Error ($\Delta_2$) | PSNR (dB) | SSIM | PSNR Gain | Execution Time |
 | :--- | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -157,9 +157,9 @@ Smooth cosine windowing dampens periodic boundary wrap-around artifacts.
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
-### 🐍 Python Suite
+### Python Suite
 
 #### 1. Installation
 ```bash
@@ -200,7 +200,7 @@ print(f"Restored PSNR: {metrics['psnr_db']:.2f} dB | SSIM: {metrics['ssim']:.4f}
 
 ---
 
-### 💻 MATLAB / GNU Octave Suite
+### MATLAB / GNU Octave Suite
 
 Open MATLAB and navigate to `matlab/`:
 
@@ -221,7 +221,7 @@ compare_priors            % Tikhonov vs Gradient vs Laplacian
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -276,7 +276,7 @@ compare_priors            % Tikhonov vs Gradient vs Laplacian
 
 ---
 
-## 📜 Citation & License
+## Citation & License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
@@ -292,5 +292,5 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ```
 
 <div align="center">
-  <sub>Maintained with ❤️ by Mohammed EL BARAKA &bull; EMINES - School of Industrial Management (UM6P)</sub>
+  <sub>Maintained by Mohammed EL BARAKA &bull; EMINES - School of Industrial Management (UM6P)</sub>
 </div>
