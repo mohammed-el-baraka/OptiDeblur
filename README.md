@@ -69,7 +69,7 @@ $$\hat{X}(\nu_x, \nu_y) = \frac{H^*(\nu_x, \nu_y)}{|H(\nu_x, \nu_y)|^2 + \lambda
 
 The spatial estimate is reconstructed via 2D IFFT:
 
-$$\hat{x}[n,m] = \mathcal{F}^{-1} \left\{ G(\nu_x, \nu_y) \cdot Y(\nu_x, \nu_y) \right\}$$
+$$\hat{x}[n,m] = \mathcal{F}^{-1} \left[ G(\nu_x, \nu_y) \cdot Y(\nu_x, \nu_y) \right]$$
 
 ---
 
