@@ -5,7 +5,6 @@
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg?logo=python&logoColor=white)](https://www.python.org/)
 [![MATLAB / Octave](https://img.shields.io/badge/MATLAB-R2020b+-orange.svg?logo=mathworks&logoColor=white)](https://www.mathworks.com/)
-[![Report Typst](https://img.shields.io/badge/Report-Typst%2011%20Pages-239dad.svg?logo=typst&logoColor=white)](Rapport_Mohammed_EL_BARAKA.pdf)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status: Production](https://img.shields.io/badge/Status-Complete-success.svg)]()
 
@@ -13,7 +12,7 @@
 **Institution:** EMINES – School of Industrial Management, Mohammed VI Polytechnic University (UM6P)  
 **Topic:** Computational Signal & Image Processing, Fourier Diagonalization, Tikhonov Regularization, Bias-Variance Optimization
 
-[Read Official Technical Report (PDF)](Rapport_Mohammed_EL_BARAKA.pdf) • [View Figures](figures/) • [MATLAB Code](matlab/) • [Python Engine](python/)
+[View Figures](figures/) • [MATLAB Code](matlab/) • [Python Engine](python/)
 
 </div>
 
@@ -229,7 +228,6 @@ compare_priors            % Tikhonov vs Gradient vs Laplacian
 ├── LICENSE                        # MIT Open Source License
 ├── requirements.txt               # Python package dependencies
 ├── .gitignore                     # Git ignore rules
-├── Rapport_Mohammed_EL_BARAKA.pdf # Official 11-page technical report (PDF)
 │
 ├── data/                          # Dataset matrices (.mat)
 │   ├── Data1.mat                  # Dataset 1: Gaussian blur + noise
